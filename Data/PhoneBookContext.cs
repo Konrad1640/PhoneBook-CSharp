@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PhoneBook.Models;
 
-namespace PhoneBook
+namespace PhoneBook.Data
 {
     class PhoneBookContext : DbContext
     {

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text.Json;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using PhoneBook.Models;
+using PhoneBook.Data;
 
 namespace PhoneBook
 {

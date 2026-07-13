@@ -1,5 +1,7 @@
 ﻿using System;
-
+using PhoneBook.Models;
+using PhoneBook.Data;
+using PhoneBook.Services;
 namespace PhoneBook
 {
     class Program
@@ -9,6 +11,7 @@ namespace PhoneBook
             Console.WriteLine("Hello from the PhoneBook app");
 
             var phoneBook = new PhoneBook();
+            var contactService = new ContactService();
 
             var fileService = new FileService();
 
@@ -112,7 +115,7 @@ namespace PhoneBook
 
             var contact = new Contact(name, number);
 
-            phoneBook.AddContact(contact);
+            contactService.AddContact(contact);
 
             Console.WriteLine("Contact added successfully!");
         }
