@@ -1,57 +1,83 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using PhoneBook.Data;
 using PhoneBook.Models;
+using PhoneBook.Repositories;
 
 namespace PhoneBook.Services
 {
     class ContactService
     {
-        private readonly PhoneBookContext db;
-
-
-        public ContactService()
+        public void EditContact(string oldNumber, string newName, string newNumber)
         {
-            db = new PhoneBookContext();
-            db.Database.EnsureCreated();
-        }
+            var contact = repository.GetByNumber(oldNumber);
 
-
-        public void AddContact(Contact contact)
-        {
-            db.Contacts.Add(contact);
-
-            db.SaveChanges();
-
-            Console.WriteLine("Contact saved!");
-        }
-
-        public void DeleteContact(string number)
-        {
-            var contact = db.Contacts.FirstOrDefault(c => c.Number == number);
-
-            if (contact == null)
+            if(contact == null)
             {
                 Console.WriteLine("Contact not found");
                 return;
             }
 
-            db.Contacts.Remove(contact);
+            contact.Name = newName;
+            contact.Number = newNumber;
 
-            db.SaveChanges();
+            repository.Update(contact);
 
-            Console.WriteLine("Contact deleted successfully!");
+            Console.WriteLine("Contact updated successfully!");
         }
+        
+        private readonly ContactRepository repository;
 
-        public void DisplayAllContacts()
+        public void SearchContacts(string phrase)
         {
-            var contacts = db.Contacts.ToList();
+            var contacts = repository.Search(phrase);
 
             foreach(var contact in contacts)
             {
                 Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
             }
+        }
+        public ContactService()
+        {
+            repository = new ContactRepository();
+        }
+
+
+        public void AddContact(Contact contact)
+        {
+            repository.Add(contact);
+
+            Console.WriteLine("Contact saved!");
+        }
+
+
+        public List<Contact> GetContacts()
+        {
+            return repository.GetAll();
+        }
+
+        public void DisplayAllContacts()
+        {
+            var contacts = repository.GetAll();
+
+            foreach(var contact in contacts)
+            {
+                Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
+            }
+        }
+
+        public void DeleteContact(string number)
+        {
+            var contact = repository.GetByNumber(number);
+
+            if(contact == null)
+            {
+                Console.WriteLine("Contact not found");
+                return;
+            }
+
+            repository.Delete(contact);
+
+            Console.WriteLine("Contact deleted!");
         }
     }
 }

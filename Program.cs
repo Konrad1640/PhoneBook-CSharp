@@ -44,10 +44,10 @@ namespace PhoneBook
                         break;
 
                     case "4":
-                        SearchContacts(phoneBook);
+                        SearchContacts(contactService);
                         break;
                     case "5":
-                        EditContact(phoneBook);
+                        EditContact(contactService);
                         break;
 
                     case "6":
@@ -130,7 +130,7 @@ namespace PhoneBook
         }
 
 
-        private static void SearchContacts(PhoneBook phoneBook)
+        private static void SearchContacts(ContactService contactService)
         {
             Console.Write("Insert search phrase: ");
 
@@ -142,9 +142,9 @@ namespace PhoneBook
                 return;
             }
 
-            phoneBook.DisplayMatchingContacts(searchPhrase);
+            contactService.SearchContacts(searchPhrase);
         }
-        private static void EditContact(PhoneBook phoneBook)
+        private static void EditContact(ContactService contactService)
         {
             Console.Write("Enter current phone number: ");
             var oldNumber = Console.ReadLine();
@@ -156,7 +156,7 @@ namespace PhoneBook
             var newNumber = Console.ReadLine();
 
 
-            phoneBook.EditContact(oldNumber, newName, newNumber);
+            contactService.EditContact(oldNumber, newName, newNumber);
         }
     }
 }
