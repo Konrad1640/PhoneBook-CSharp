@@ -85,15 +85,20 @@ namespace PhoneBook
             Console.WriteLine("x. Exit");
             Console.Write("Choose option: ");
         }
-        private static void DeleteContact(ContactService contactService)
+       private static void DeleteContact(ContactService contactService)
         {
             Console.Write("Enter contact number to delete: ");
 
             var number = Console.ReadLine();
 
+            if (string.IsNullOrWhiteSpace(number))
+            {
+                Console.WriteLine("Number cannot be empty!");
+                return;
+            }
+
             contactService.DeleteContact(number);
         }
-
 
         private static void AddContact(ContactService contactService)
         {
@@ -120,11 +125,17 @@ namespace PhoneBook
         }
 
 
-        private static void DisplayContact(PhoneBook phoneBook)
+       private static void DisplayContact(PhoneBook phoneBook)
         {
             Console.Write("Insert number: ");
 
             var number = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(number))
+            {
+                Console.WriteLine("Number cannot be empty!");
+                return;
+            }
 
             phoneBook.DisplayContact(number);
         }
@@ -155,6 +166,14 @@ namespace PhoneBook
             Console.Write("Enter new number: ");
             var newNumber = Console.ReadLine();
 
+
+            if (string.IsNullOrWhiteSpace(oldNumber) ||
+                string.IsNullOrWhiteSpace(newName) ||
+                string.IsNullOrWhiteSpace(newNumber))
+            {
+                Console.WriteLine("Data cannot be empty!");
+                return;
+            }
 
             contactService.EditContact(oldNumber, newName, newNumber);
         }
