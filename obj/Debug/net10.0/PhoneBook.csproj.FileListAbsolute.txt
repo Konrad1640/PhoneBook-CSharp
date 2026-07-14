@@ -1,3 +1,9 @@
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.csproj.AssemblyReference.cache
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.AssemblyInfoInputs.cache
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.AssemblyInfo.cs
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.csproj.CoreCompileInputs.cache
+C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.sourcelink.json
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\PhoneBook.exe
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\PhoneBook.deps.json
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\PhoneBook.runtimeconfig.json
@@ -44,12 +50,6 @@ C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\runtimes\win-arm\native\
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\konra\FirstProject\PhoneBook\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.csproj.AssemblyReference.cache
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.AssemblyInfoInputs.cache
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.AssemblyInfo.cs
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.csproj.CoreCompileInputs.cache
-C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.sourcelink.json
 C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.csproj.Up2Date
 C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\PhoneBook.dll
 C:\Users\konra\FirstProject\PhoneBook\obj\Debug\net10.0\refint\PhoneBook.dll

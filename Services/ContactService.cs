@@ -26,5 +26,32 @@ namespace PhoneBook.Services
 
             Console.WriteLine("Contact saved!");
         }
+
+        public void DeleteContact(string number)
+        {
+            var contact = db.Contacts.FirstOrDefault(c => c.Number == number);
+
+            if (contact == null)
+            {
+                Console.WriteLine("Contact not found");
+                return;
+            }
+
+            db.Contacts.Remove(contact);
+
+            db.SaveChanges();
+
+            Console.WriteLine("Contact deleted successfully!");
+        }
+
+        public void DisplayAllContacts()
+        {
+            var contacts = db.Contacts.ToList();
+
+            foreach(var contact in contacts)
+            {
+                Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
+            }
+        }
     }
 }

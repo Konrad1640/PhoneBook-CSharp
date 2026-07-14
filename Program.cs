@@ -32,7 +32,7 @@ namespace PhoneBook
                 switch (userInput)
                 {
                     case "1":
-                        AddContact(phoneBook);
+                        AddContact(contactService);
                         break;
 
                     case "2":
@@ -40,7 +40,7 @@ namespace PhoneBook
                         break;
 
                     case "3":
-                        phoneBook.DisplayAllContacts();
+                        contactService.DisplayAllContacts();
                         break;
 
                     case "4":
@@ -51,7 +51,7 @@ namespace PhoneBook
                         break;
 
                     case "6":
-                        DeleteContact(phoneBook);
+                        DeleteContact(contactService);
                         break;
 
                     case "x":
@@ -85,18 +85,17 @@ namespace PhoneBook
             Console.WriteLine("x. Exit");
             Console.Write("Choose option: ");
         }
-
-        private static void DeleteContact(PhoneBook phoneBook)
+        private static void DeleteContact(ContactService contactService)
         {
             Console.Write("Enter contact number to delete: ");
 
             var number = Console.ReadLine();
 
-            phoneBook.DeleteContact(number);
+            contactService.DeleteContact(number);
         }
 
 
-        private static void AddContact(PhoneBook phoneBook)
+        private static void AddContact(ContactService contactService)
         {
             Console.Write("Insert number: ");
             var number = Console.ReadLine();
