@@ -122,7 +122,7 @@ namespace PhoneBook
                 return;
             }
 
-            var contact = new Contact(name, number);
+            var contact = new Contact(name!, number!);
 
             contactService.AddContact(contact);
 
