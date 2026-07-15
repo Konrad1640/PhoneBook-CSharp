@@ -36,11 +36,18 @@ namespace PhoneBook.Services
 
         public void SearchContacts(string phrase)
         {
-            var contacts = repository.Search(phrase);
-
-            foreach(var contact in contacts)
+            try
             {
-                Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
+                var contacts = repository.Search(phrase);
+
+                foreach(var contact in contacts)
+                {
+                    Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while searching contacts: {ex.Message}");
             }
         }
         public ContactService()
@@ -69,7 +76,9 @@ namespace PhoneBook.Services
             return repository.GetAll();
         }
 
-        public void DisplayAllContacts()
+     public void DisplayAllContacts()
+    {
+        try
         {
             var contacts = repository.GetAll();
 
@@ -78,6 +87,11 @@ namespace PhoneBook.Services
                 Console.WriteLine($"Contact: {contact.Name}, {contact.Number}");
             }
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error while loading contacts: {ex.Message}");
+        }
+    }
 
         public void DeleteContact(string number)
         {

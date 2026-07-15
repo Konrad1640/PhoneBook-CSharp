@@ -110,13 +110,17 @@ namespace PhoneBook
             var name = Console.ReadLine();
 
 
-           if (string.IsNullOrWhiteSpace(name) ||
-                string.IsNullOrWhiteSpace(number))
+          if (!ContactValidator.IsValidName(name))
             {
-                Console.WriteLine("Name and number cannot be empty!");
+                Console.WriteLine("Invalid name!");
                 return;
             }
 
+            if (!ContactValidator.IsValidPhoneNumber(number))
+            {
+                Console.WriteLine("Invalid phone number!");
+                return;
+            }
 
             var contact = new Contact(name, number);
 
@@ -177,13 +181,13 @@ namespace PhoneBook
             }
             if (!ContactValidator.IsValidName(newName))
             {
-                Console.WriteLine("Name cannot be empty!");
+                Console.WriteLine("Invalid name!");
                 return;
             }
 
             if (!ContactValidator.IsValidPhoneNumber(newNumber))
             {
-                Console.WriteLine("Phone number must contain exactly 9 digits.");
+                Console.WriteLine("Invalid phone number!");
                 return;
             }
             contactService.EditContact(oldNumber, newName, newNumber);
