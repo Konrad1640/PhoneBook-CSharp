@@ -5,24 +5,31 @@ using PhoneBook.Repositories;
 
 namespace PhoneBook.Services
 {
-    class ContactService
+    public class ContactService
     {
         public void EditContact(string oldNumber, string newName, string newNumber)
         {
-            var contact = repository.GetByNumber(oldNumber);
-
-            if(contact == null)
+            try
             {
-                Console.WriteLine("Contact not found");
-                return;
+                var contact = repository.GetByNumber(oldNumber);
+
+                if(contact == null)
+                {
+                    Console.WriteLine("Contact not found");
+                    return;
+                }
+
+                contact.Name = newName;
+                contact.Number = newNumber;
+
+                repository.Update(contact);
+
+                Console.WriteLine("Contact updated successfully!");
             }
-
-            contact.Name = newName;
-            contact.Number = newNumber;
-
-            repository.Update(contact);
-
-            Console.WriteLine("Contact updated successfully!");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while updating contact: {ex.Message}");
+            }
         }
         
         private readonly ContactRepository repository;
@@ -42,11 +49,18 @@ namespace PhoneBook.Services
         }
 
 
-        public void AddContact(Contact contact)
+       public void AddContact(Contact contact)
         {
-            repository.Add(contact);
+            try
+            {
+                repository.Add(contact);
 
-            Console.WriteLine("Contact saved!");
+                Console.WriteLine("Contact saved!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while saving contact: {ex.Message}");
+            }
         }
 
 
@@ -67,17 +81,24 @@ namespace PhoneBook.Services
 
         public void DeleteContact(string number)
         {
-            var contact = repository.GetByNumber(number);
-
-            if(contact == null)
+            try
             {
-                Console.WriteLine("Contact not found");
-                return;
+                var contact = repository.GetByNumber(number);
+
+                if(contact == null)
+                {
+                    Console.WriteLine("Contact not found");
+                    return;
+                }
+
+                repository.Delete(contact);
+
+                Console.WriteLine("Contact deleted!");
             }
-
-            repository.Delete(contact);
-
-            Console.WriteLine("Contact deleted!");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while deleting contact: {ex.Message}");
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PhoneBook.Models
 {
-    class Contact
+    public class Contact
     {
         public Contact(string name, string number)
         {

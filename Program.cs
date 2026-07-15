@@ -2,6 +2,7 @@
 using PhoneBook.Models;
 using PhoneBook.Data;
 using PhoneBook.Services;
+using PhoneBook.Validators;
 namespace PhoneBook
 {
     class Program
@@ -109,7 +110,7 @@ namespace PhoneBook
             var name = Console.ReadLine();
 
 
-            if (string.IsNullOrWhiteSpace(name) ||
+           if (string.IsNullOrWhiteSpace(name) ||
                 string.IsNullOrWhiteSpace(number))
             {
                 Console.WriteLine("Name and number cannot be empty!");
@@ -174,7 +175,17 @@ namespace PhoneBook
                 Console.WriteLine("Data cannot be empty!");
                 return;
             }
+            if (!ContactValidator.IsValidName(newName))
+            {
+                Console.WriteLine("Name cannot be empty!");
+                return;
+            }
 
+            if (!ContactValidator.IsValidPhoneNumber(newNumber))
+            {
+                Console.WriteLine("Phone number must contain exactly 9 digits.");
+                return;
+            }
             contactService.EditContact(oldNumber, newName, newNumber);
         }
     }
